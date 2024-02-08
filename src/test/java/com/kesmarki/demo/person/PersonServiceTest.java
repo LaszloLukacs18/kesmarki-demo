@@ -68,19 +68,43 @@ class PersonServiceTest {
     }
 
     @Test
-    void savePersonWithEmptyAddressListMustThrownException()
-            throws Exception {
-        Person person = ValidPersonBuilder.build();
-        person.setAddresses(new ArrayList<>());
-        personService.save(person);
+    void savePersonWithEmptyAddressListMustThrownException() {
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            Person person = ValidPersonBuilder.build();
+            person.setAddresses(new ArrayList<>());
+            personService.save(person);
+        });
+        Assertions.assertEquals(JPA_COMMIT_ERROR, thrown.getMessage());
     }
 
     @Test
-    void savePersonWithoutContactsMustThrownException()
-            throws Exception {
-        Person person = ValidPersonBuilder.build();
-        person.setContacts(null);
-        personService.save(person);
+    void savePersonWithoutContactsMustThrownException() {
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            Person person = ValidPersonBuilder.build();
+            person.setContacts(null);
+            personService.save(person);
+        });
+        Assertions.assertEquals(JPA_COMMIT_ERROR, thrown.getMessage());
+    }
+
+    @Test
+    void savePersonWithEmptyContactListMustThrownException() {
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            Person person = ValidPersonBuilder.build();
+            person.setContacts(new ArrayList<>());
+            personService.save(person);
+        });
+        Assertions.assertEquals(JPA_COMMIT_ERROR, thrown.getMessage());
+    }
+
+    @Test
+    void savePersonWithoutAddressTypeMustThrownException() {
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            Person person = ValidPersonBuilder.build();
+            person.getContacts().get(0).setContactType(null);
+            personService.save(person);
+        });
+        Assertions.assertEquals(JPA_COMMIT_ERROR, thrown.getMessage());
     }
 
     @Test
