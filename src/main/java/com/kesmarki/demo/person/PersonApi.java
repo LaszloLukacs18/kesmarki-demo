@@ -1,5 +1,6 @@
 package com.kesmarki.demo.person;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +16,12 @@ public class PersonApi {
     private final PersonService personService;
 
     @PostMapping("/person")
-    public ResponseEntity<Person> save(@RequestBody Person person) {
+    public ResponseEntity<Object> save(@RequestBody @Valid Person person) {
         try {
             Person _person = personService.save(person);
             return new ResponseEntity<>(_person, HttpStatus.CREATED);
-        } catch (Exception e) {
+        } catch(Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

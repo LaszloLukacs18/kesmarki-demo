@@ -35,7 +35,7 @@ public class AddNewPersonPageController {
             value = "/add-new-person",
             consumes = {MediaType.ALL_VALUE}
     )
-    public String getRegisterResultPage(Person person) {
+    public String getRegisterResultPage(Person person) throws Exception {
         personService.save(person);
         return "pages/home/home-page";
     }
