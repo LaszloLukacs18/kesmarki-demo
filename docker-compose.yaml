@@ -5,11 +5,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2019-latest
     restart: always
     environment:
-        ACCEPT_EULA: "Y"
-        SA_PASSWORD: "mssqlpw"
+        ACCEPT_EULA: Y
+        MSSQL_SA_PASSWORD: 767kjHU#tzRq12
     ports:
       - "1433:1433"
-    volumes:
-      - my-volume:/var/opt/mssql
-volumes:
-  my-volume:
