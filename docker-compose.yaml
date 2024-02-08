@@ -9,3 +9,9 @@ services:
         MSSQL_SA_PASSWORD: 767kjHU#tzRq12
     ports:
       - "1433:1433"
+  db-init:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    network_mode: service:database
+    command: bash -c 'until /opt/mssql-tools/bin/sqlcmd -U sa -P 767kjHU#tzRq12 -Q "CREATE DATABASE demodb"; do echo retry && sleep 1; done'
+    depends_on:
+      - database
