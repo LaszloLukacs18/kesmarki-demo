@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page session="false" %>
 <html>
@@ -32,25 +33,27 @@
     </div>
     <div class="main-container">
         <div class="form-wrapper">
-            <form class="person-submit-form">
+            <form:form  class="person-submit-form"
+                        method="post"
+                        action="/add-new-person"
+                        modelAttribute="person">
                 <div class="form-header">
                     Add New Person
                 </div>
                 <div class="input-wrapper">
-                    <label class="input-label" for="first-name">First name</label>
-                    <input class="input-field" type="text" id="first-name" name="first-name" placeholder="First name">
+                    <form:label path="firstName" class="input-label" for="firstName">First name</form:label>
+                    <form:input path="firstName" class="input-field" type="text" id="firstName" placeholder="First name"/>
                 </div>
                 <div class="input-wrapper">
-                    <label class="input-label" for="last-name">Last name</label>
-                    <input class="input-field" type="text" id="last-name"
-                           name="last-name" placeholder="Last name">
+                    <form:label path="lastName" class="input-label" for="lastName">First name</form:label>
+                    <form:input path="lastName" class="input-field" type="text" id="lastName" placeholder="Last name"/>
                 </div>
                 <div class="input-wrapper">
                     <label class="input-label">Permanent Address</label>
                     <div class="compound-input-panel">
                         <div class="input-wrapper">
-                            <label class="input-label" for="postal-code">Postal code</label>
-                            <input class="input-field" type="text" id="postal-code" name="postal-code"
+                            <label class="input-label" for="postalCode">Postal code</label>
+                            <input class="input-field" type="text" id="postalCode" name="postalCode"
                                    placeholder="City">
                         </div>
                         <div class="input-wrapper">
@@ -64,8 +67,8 @@
                                    placeholder="Street">
                         </div>
                         <div class="input-wrapper">
-                            <label class="input-label" for="house-number">House number</label>
-                            <input class="input-field" type="text" id="house-number" name="house-number"
+                            <label class="input-label" for="houseNumber">House number</label>
+                            <input class="input-field" type="text" id="houseNumber" name="houseNumber"
                                    placeholder="House number">
                         </div>
                     </div>
@@ -74,23 +77,23 @@
                     <label class="input-label">Temporary Address</label>
                     <div class="compound-input-panel">
                         <div class="input-wrapper">
-                            <label class="input-label" for="temp-postal-code">Postal code</label>
-                            <input class="input-field" type="text" id="temp-postal-code" name="postal-code"
+                            <label class="input-label" for="postalCode">Postal code</label>
+                            <input class="input-field" type="text" id="tmp-postalCode" name="postalCode"
                                    placeholder="City">
                         </div>
                         <div class="input-wrapper">
-                            <label class="input-label" for="temp-city">City</label>
-                            <input class="input-field" type="text" id="temp-city" name="city"
+                            <label class="input-label" for="city">City</label>
+                            <input class="input-field" type="text" id="tmp-city" name="city"
                                    placeholder="City">
                         </div>
                         <div class="input-wrapper">
-                            <label class="input-label" for="temp-street">Street</label>
-                            <input class="input-field" type="text" id="temp-street" name="street"
+                            <label class="input-label" for="street">Street</label>
+                            <input class="input-field" type="text" id="tmp-street" name="street"
                                    placeholder="Street">
                         </div>
                         <div class="input-wrapper">
-                            <label class="input-label" for="temp-house-number">House number</label>
-                            <input class="input-field" type="text" id="temp-house-number" name="house-number"
+                            <label class="input-label" for="houseNumber">House number</label>
+                            <input class="input-field" type="text" id="tmp-houseNumber" name="houseNumber"
                                    placeholder="House number">
                         </div>
                     </div>
@@ -99,13 +102,15 @@
                     <label class="input-label">Contacts</label>
                     <div class="compound-input-panel">
                         <div class="input-wrapper">
-                            <label class="input-label" for="contact-type">Phone number</label>
-                            <input class="input-field" type="text" id="contact-type" name="contact-type"
-                                   placeholder="Contact type">
+                            <label class="input-label" for="contactType">Phone number</label>
+                            <select class="select-field" type="text" id="contactType" name="contactType">
+                                <option>Phone number</option>
+                                <option>Email</option>
+                            </select>
                         </div>
                         <div class="input-wrapper">
-                            <label class="input-label" for="contact-value">Contact Value</label>
-                            <input class="input-field" type="text" id="contact-value" name="contact-value"
+                            <label class="input-label" for="value">Contact Value</label>
+                            <input class="input-field" type="text" id="value" name="value"
                                    placeholder="Contact value">
                         </div>
                         <a class="option-link" href="#">Add more contacts</a>
@@ -114,7 +119,7 @@
                 <button class="submit-button" type="submit">
                     Submit
                 </button>
-            </form>
+            </form:form>
         </div>
 
     </div>
