@@ -1,15 +1,13 @@
 package com.kesmarki.demo.contact;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kesmarki.demo.person.Person;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "contact")
@@ -18,6 +16,11 @@ public class Contact {
     @Id
     @GeneratedValue
     private Integer id;
+
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     private ContactType contactType;
     private String value;

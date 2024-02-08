@@ -3,14 +3,13 @@ package com.kesmarki.demo.person;
 import com.kesmarki.demo.address.Address;
 import com.kesmarki.demo.contact.Contact;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "person")
@@ -23,12 +22,10 @@ public class Person {
     private String firstName;
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private List<Address> addresses;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private List<Contact> contacts;
 
 }
