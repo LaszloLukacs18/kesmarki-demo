@@ -3,8 +3,10 @@ package com.kesmarki.demo.person;
 import com.kesmarki.demo.address.Address;
 import com.kesmarki.demo.contact.Contact;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,6 +44,8 @@ public class Person {
             mappedBy = "person",
             cascade = CascadeType.ALL
     )
+    @Valid
+    @NotNull
     @Size(min=1, max=2)
     private List<Address> addresses;
 
@@ -50,6 +54,8 @@ public class Person {
             mappedBy = "person",
             cascade = CascadeType.ALL
     )
+    @Valid
+    @NotNull
     @Size(min=1)
     private List<Contact> contacts;
 

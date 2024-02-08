@@ -3,6 +3,7 @@ package com.kesmarki.demo.address;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kesmarki.demo.person.Person;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -30,10 +31,20 @@ public class Address {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id")
     private Person person;
+
+    @NotNull(message = "Address type is mandatory")
     private AddressType addressType;
+
+    @NotBlank(message = "Postal code is mandatory")
     private String postalCode;
+
+    @NotBlank(message = "City is mandatory")
     private String city;
+
+    @NotBlank(message = "Street is mandatory")
     private String street;
+
+    @NotBlank(message = "House number is mandatory")
     private String houseNumber;
 
     @Override

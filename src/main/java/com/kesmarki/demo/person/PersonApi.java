@@ -16,12 +16,11 @@ public class PersonApi {
     private final PersonService personService;
 
     @PostMapping("/person")
-    public ResponseEntity<Object> save(@RequestBody @Valid Person person) {
+    public ResponseEntity<Person> save(@RequestBody @Valid Person person) {
         try {
             Person _person = personService.save(person);
             return new ResponseEntity<>(_person, HttpStatus.CREATED);
         } catch(Exception e) {
-            e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

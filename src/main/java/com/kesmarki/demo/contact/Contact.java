@@ -29,7 +29,11 @@ public class Contact {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id")
     private Person person;
+
+    @NotNull(message = "Contact type is mandatory")
     private ContactType contactType;
+
+    @NotBlank(message = "Contact value is mandatory")
     private String value;
 
     @Override
