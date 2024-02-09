@@ -19,6 +19,7 @@ import lombok.Setter;
 public class Contact {
 
     @Id
+    @JsonIgnore
     @GeneratedValue
     private Integer id;
 

@@ -1,5 +1,7 @@
 package com.kesmarki.demo.person;
 
+import com.kesmarki.demo.address.Address;
+import com.kesmarki.demo.contact.Contact;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,10 +20,20 @@ public class PersonApi {
     @PostMapping("/person")
     public ResponseEntity<Person> save(@RequestBody @Valid Person person) {
         try {
+            setTwoWayBinding(person);
             Person _person = personService.save(person);
             return new ResponseEntity<>(_person, HttpStatus.CREATED);
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    private void setTwoWayBinding(final Person person) {
+        for (Address address : person.getAddresses()) {
+            address.setPerson(person);
+            for (Contact contact : address.getContacts()) {
+                contact.setAddress(address);
+            }
         }
     }
 
@@ -48,11 +60,13 @@ public class PersonApi {
         }
     }
 
-    @PutMapping("person/{id}")
+    @PutMapping("/person/{id}")
     public ResponseEntity<Person> update(
             @PathVariable("id") Integer id,
             @RequestBody Person person) {
         try {
+            person.setId(id);
+            setTwoWayBinding(person);
             Person _person = personService.update(person);
             return new ResponseEntity<>(_person, HttpStatus.OK);
         } catch (Exception e) {
@@ -60,7 +74,7 @@ public class PersonApi {
         }
     }
 
-    @DeleteMapping("person/{id}")
+    @DeleteMapping("/person/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable("id") Integer id) {
         try {
             personService.deleteById(id);

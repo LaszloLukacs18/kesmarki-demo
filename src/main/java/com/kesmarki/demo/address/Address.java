@@ -12,10 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.proxy.HibernateProxy;
 
 import java.util.List;
-import java.util.Objects;
 
 
 @Entity
@@ -27,6 +25,7 @@ import java.util.Objects;
 public class Address {
 
     @Id
+    @JsonIgnore
     @GeneratedValue
     private Integer id;
 
@@ -56,8 +55,8 @@ public class Address {
             cascade = CascadeType.ALL
     )
     @Valid
-    @NotNull
-    @Size(min=1)
+    @NotNull(message = "Contacts can not be null!")
+    @Size(min = 1, message = "Must provide at least 1 contact!")
     private List<Contact> contacts;
 
 }

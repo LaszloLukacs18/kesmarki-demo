@@ -310,7 +310,6 @@ class PersonServiceTest {
             personService.findById(savedPerson.getId()).get();
         });
         Assertions.assertEquals(NO_VALUE_PRESENT, thrown.getMessage());
-
     }
 
 }

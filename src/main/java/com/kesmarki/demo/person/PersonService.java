@@ -43,4 +43,9 @@ public class PersonService {
         personRepository.deleteById(id);
     }
 
+    public Optional<Person> findByPrimaryContactEmail(
+            final String primaryContactEmail) {
+        return personRepository.findByPrimaryContactEmail(primaryContactEmail);
+    }
+
 }

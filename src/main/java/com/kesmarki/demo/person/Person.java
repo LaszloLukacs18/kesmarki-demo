@@ -1,5 +1,6 @@
 package com.kesmarki.demo.person;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kesmarki.demo.address.Address;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -11,8 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,6 +24,7 @@ import java.util.List;
 public class Person {
 
     @Id
+    @JsonIgnore
     @GeneratedValue
     private Integer id;
 
@@ -43,8 +43,7 @@ public class Person {
             mappedBy = "person",
             cascade = CascadeType.ALL)
     @Valid
-    @NotNull
-    @UniqueElements
+    @NotNull(message = "Must provide at least one address!")
     @Size(min = 1, max = 2)
     private List<Address> addresses;
 

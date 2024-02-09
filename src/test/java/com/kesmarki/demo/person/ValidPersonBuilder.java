@@ -50,17 +50,17 @@ public class ValidPersonBuilder {
 
         Contact temporaryContact = new Contact();
         temporaryContact.setContactType(ContactType.EMAIL);
-        temporaryContact.setValue("test@test.com");
+        temporaryContact.setValue("test2@test.com");
         temporaryContact.setAddress(temporaryAddress);
 
         Contact temporaryContact2 = new Contact();
         temporaryContact2.setContactType(ContactType.PHONE_NUMBER);
-        temporaryContact2.setValue("+36 888 3333");
+        temporaryContact2.setValue("+36 888 3433");
         temporaryContact2.setAddress(temporaryAddress);
 
         List<Contact> temporaryContacts = new ArrayList<>();
-        temporaryContacts.add(permanentcontact);
-        temporaryContacts.add(permanentContact2);
+        temporaryContacts.add(temporaryContact);
+        temporaryContacts.add(temporaryContact2);
         temporaryAddress.setContacts(temporaryContacts);
 
         List<Address> addresses = new ArrayList<>();
