@@ -20,12 +20,6 @@ public class PersonService {
     private final PersonPageRepository personPageRepository;
 
     public Person save(final Person person) {
-        if (Objects.nonNull(person.getAddresses())
-                && person.getAddresses().size() == 2
-                && person.getAddresses().get(0).getAddressType()
-                .equals(person.getAddresses().get(1).getAddressType())) {
-
-        }
         return personRepository.save(person);
     }
 
