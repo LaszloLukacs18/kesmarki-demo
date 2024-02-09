@@ -1,0 +1,41 @@
+{
+  "firstName": "Kovács",
+  "lastName": "Ferenc",
+  "primaryContactEmail": "test0@gmail.com",
+  "addresses": [
+    {
+      "addressType": "PERMANENT",
+      "postalCode": "1234",
+      "city": "Debrecen",
+      "street": "Kossuth Utca",
+      "houseNumber": 14,
+      "contacts": [
+        {
+          "contactType": "EMAIL",
+          "value": "test2@test.com"
+        },
+        {
+          "contactType": "PHONE_NUMBER",
+          "value": "+36 30 888 1113"
+        }
+      ]
+    },
+    {
+      "addressType": "TEMPORARY",
+      "postalCode": "123456",
+      "city": "Budapes",
+      "street": "Petőfi Utca",
+      "houseNumber": 88,
+      "contacts": [
+        {
+          "contactType": "EMAIL",
+          "value": "test3@test.com"
+        },
+        {
+          "contactType": "PHONE_NUMBER",
+          "value": "+36 30 888 9933"
+        }
+      ]
+    }
+  ]
+}

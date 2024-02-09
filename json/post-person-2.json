@@ -1,0 +1,24 @@
+{
+  "firstName": "Gipsz",
+  "lastName": "Jakab",
+  "primaryContactEmail": "gipszjakab@gmail.com",
+  "addresses": [
+    {
+      "addressType": "PERMANENT",
+      "postalCode": "1234",
+      "city": "Budapest",
+      "street": "Margit Körút",
+      "houseNumber": 22,
+      "contacts": [
+        {
+          "contactType": "EMAIL",
+          "value": "test3@test.com"
+        },
+        {
+          "contactType": "PHONE_NUMBER",
+          "value": "+36 70 231 4532"
+        }
+      ]
+    }
+  ]
+}

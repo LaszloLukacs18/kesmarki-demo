@@ -1,0 +1,28 @@
+{
+  "firstName": "Miki",
+  "lastName": "Egér",
+  "primaryContactEmail": "mikieger@gmail.com",
+  "addresses": [
+    {
+      "addressType": "TEMPORARY",
+      "postalCode": "1234",
+      "city": "Budapest",
+      "street": "Deák Ferenc Tér",
+      "houseNumber": 40,
+      "contacts": [
+        {
+          "contactType": "EMAIL",
+          "value": "test5@test.com"
+        },
+        {
+          "contactType": "EMAIL",
+          "value": "mickymouse@test.com"
+        },
+        {
+          "contactType": "PHONE_NUMBER",
+          "value": "+36 70 111 3211"
+        }
+      ]
+    }
+  ]
+}
