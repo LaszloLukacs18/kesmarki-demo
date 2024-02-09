@@ -49,16 +49,6 @@ public class Person {
     @Size(min=1, max=2)
     private List<Address> addresses;
 
-    @OneToMany(
-            fetch = FetchType.LAZY,
-            mappedBy = "person",
-            cascade = CascadeType.ALL
-    )
-    @Valid
-    @NotNull
-    @Size(min=1)
-    private List<Contact> contacts;
-
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;

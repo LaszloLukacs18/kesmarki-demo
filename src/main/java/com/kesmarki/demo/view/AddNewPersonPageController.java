@@ -27,7 +27,6 @@ public class AddNewPersonPageController {
         List< Contact> contacts = new ArrayList<>();
         Person person = new Person();
         person.setAddresses(addresses);
-        person.setContacts(contacts);
         model.addAttribute("person", person);
         return "pages/home/home-page";
     }

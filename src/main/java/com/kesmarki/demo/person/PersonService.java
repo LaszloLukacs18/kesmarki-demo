@@ -1,5 +1,6 @@
 package com.kesmarki.demo.person;
 
+import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -18,6 +20,12 @@ public class PersonService {
     private final PersonPageRepository personPageRepository;
 
     public Person save(final Person person) {
+        if (Objects.nonNull(person.getAddresses())
+                && person.getAddresses().size() == 2
+                && person.getAddresses().get(0).getAddressType()
+                .equals(person.getAddresses().get(1).getAddressType())) {
+
+        }
         return personRepository.save(person);
     }
 

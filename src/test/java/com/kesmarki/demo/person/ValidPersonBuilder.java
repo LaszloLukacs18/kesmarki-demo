@@ -15,36 +15,57 @@ public class ValidPersonBuilder {
         validPerson.setFirstName("First");
         validPerson.setLastName("Last");
         validPerson.setPrimaryContactEmail("test@gmail.com");
-        Address address = new Address();
-        address.setPerson(validPerson);
-        address.setCity("City name");
-        address.setStreet("Street name");
-        address.setHouseNumber("14");
-        address.setAddressType(AddressType.PERMANENT);
-        address.setPostalCode("1234");
-        Address addressTmp = new Address();
-        addressTmp.setPerson(validPerson);
-        addressTmp.setCity("Temporary city name");
-        addressTmp.setStreet("Temporary  street name");
-        addressTmp.setHouseNumber("88");
-        addressTmp.setPostalCode("123456");
-        addressTmp.setAddressType(AddressType.TEMPORARY);
-        Contact contact = new Contact();
-        contact.setContactType(ContactType.EMAIL);
-        contact.setValue("test@test.com");
-        contact.setPerson(validPerson);
-        Contact contact2 = new Contact();
-        contact2.setContactType(ContactType.PHONE_NUMBER);
-        contact2.setValue("+36 888 3333");
-        contact2.setPerson(validPerson);
+
+        Address permanentAddress = new Address();
+        permanentAddress.setPerson(validPerson);
+        permanentAddress.setCity("City name");
+        permanentAddress.setStreet("Street name");
+        permanentAddress.setHouseNumber("14");
+        permanentAddress.setAddressType(AddressType.PERMANENT);
+        permanentAddress.setPostalCode("1234");
+
+        Contact permanentcontact = new Contact();
+        permanentcontact.setContactType(ContactType.EMAIL);
+        permanentcontact.setValue("test@test.com");
+        permanentcontact.setAddress(permanentAddress);
+
+        Contact permanentContact2 = new Contact();
+        permanentContact2.setContactType(ContactType.PHONE_NUMBER);
+        permanentContact2.setValue("+36 888 3333");
+        permanentContact2.setAddress(permanentAddress);
+
+        List<Contact> permanentContacts = new ArrayList<>();
+        permanentContacts.add(permanentcontact);
+        permanentContacts.add(permanentContact2);
+        permanentAddress.setContacts(permanentContacts);
+
+        Address temporaryAddress = new Address();
+        temporaryAddress.setPerson(validPerson);
+        temporaryAddress.setCity("Temporary city name");
+        temporaryAddress.setStreet("Temporary  street name");
+        temporaryAddress.setHouseNumber("88");
+        temporaryAddress.setPostalCode("123456");
+        temporaryAddress.setAddressType(AddressType.TEMPORARY);
+
+        Contact temporaryContact = new Contact();
+        temporaryContact.setContactType(ContactType.EMAIL);
+        temporaryContact.setValue("test@test.com");
+        temporaryContact.setAddress(temporaryAddress);
+
+        Contact temporaryContact2 = new Contact();
+        temporaryContact2.setContactType(ContactType.PHONE_NUMBER);
+        temporaryContact2.setValue("+36 888 3333");
+        temporaryContact2.setAddress(temporaryAddress);
+
+        List<Contact> temporaryContacts = new ArrayList<>();
+        temporaryContacts.add(permanentcontact);
+        temporaryContacts.add(permanentContact2);
+        temporaryAddress.setContacts(temporaryContacts);
+
         List<Address> addresses = new ArrayList<>();
-        addresses.add(address);
-        addresses.add(addressTmp);
+        addresses.add(permanentAddress);
+        addresses.add(temporaryAddress);
         validPerson.setAddresses(addresses);
-        List<Contact> contacts = new ArrayList<>();
-        contacts.add(contact);
-        contacts.add(contact2);
-        validPerson.setContacts(contacts);
         return validPerson;
     }
 

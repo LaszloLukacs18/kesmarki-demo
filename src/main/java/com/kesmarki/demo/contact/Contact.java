@@ -1,6 +1,7 @@
 package com.kesmarki.demo.contact;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kesmarki.demo.address.Address;
 import com.kesmarki.demo.person.Person;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -27,8 +28,8 @@ public class Contact {
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id")
-    private Person person;
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @NotNull(message = "Contact type is mandatory")
     private ContactType contactType;
