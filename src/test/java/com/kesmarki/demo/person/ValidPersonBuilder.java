@@ -20,7 +20,7 @@ public class ValidPersonBuilder {
         permanentAddress.setPerson(validPerson);
         permanentAddress.setCity("City name");
         permanentAddress.setStreet("Street name");
-        permanentAddress.setHouseNumber("14");
+        permanentAddress.setHouseNumber(14);
         permanentAddress.setAddressType(AddressType.PERMANENT);
         permanentAddress.setPostalCode("1234");
 
@@ -43,7 +43,7 @@ public class ValidPersonBuilder {
         temporaryAddress.setPerson(validPerson);
         temporaryAddress.setCity("Temporary city name");
         temporaryAddress.setStreet("Temporary  street name");
-        temporaryAddress.setHouseNumber("88");
+        temporaryAddress.setHouseNumber(88);
         temporaryAddress.setPostalCode("123456");
         temporaryAddress.setAddressType(AddressType.TEMPORARY);
 

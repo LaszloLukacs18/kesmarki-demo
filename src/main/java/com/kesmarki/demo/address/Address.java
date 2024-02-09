@@ -47,8 +47,8 @@ public class Address {
     @NotBlank(message = "Street is mandatory")
     private String street;
 
-    @NotBlank(message = "House number is mandatory")
-    private String houseNumber;
+    @NotNull(message = "House number is mandatory")
+    private Integer houseNumber;
 
     @OneToMany(
             fetch = FetchType.LAZY,
