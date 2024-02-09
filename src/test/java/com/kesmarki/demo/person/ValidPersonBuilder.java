@@ -7,7 +7,6 @@ import com.kesmarki.demo.contact.ContactType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class ValidPersonBuilder {
 

@@ -13,9 +13,9 @@ public class ValidApiPersonBuilder {
     }
 
     private static void removeTwoWayBinding(final Person person) {
-        for(Address address : person.getAddresses()) {
+        for (Address address : person.getAddresses()) {
             address.setPerson(null);
-            for(Contact contact: address.getContacts()) {
+            for (Contact contact : address.getContacts()) {
                 contact.setAddress(null);
             }
         }

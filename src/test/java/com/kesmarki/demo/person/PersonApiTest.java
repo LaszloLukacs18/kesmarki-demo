@@ -10,7 +10,6 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
@@ -72,7 +71,8 @@ class PersonApiTest {
     public static final String CONTACT_VALUE_IS_MANDATORY
             = "Contact value is mandatory";
     public static final int NON_EXISTED_PERSON_ID = 9999999;
-    public static final String FIND_ALL_ENDPOINT = "/person?pageNo=0&&pageSize=40";
+    public static final String FIND_ALL_ENDPOINT = "/person?pageNo=0" +
+            "&&pageSize=40";
 
     @Autowired
     private PersonService personService;
@@ -435,7 +435,8 @@ class PersonApiTest {
                 uri,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<Person>>() {});
+                new ParameterizedTypeReference<List<Person>>() {
+                });
         Assertions.assertEquals(_40, persons.getBody().size());
     }
 
