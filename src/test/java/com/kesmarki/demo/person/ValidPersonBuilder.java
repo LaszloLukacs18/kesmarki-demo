@@ -7,14 +7,15 @@ import com.kesmarki.demo.contact.ContactType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ValidPersonBuilder {
 
-    public static Person build() {
+    public static Person build(final String emailPrefix) {
         Person validPerson = new Person();
         validPerson.setFirstName("First");
         validPerson.setLastName("Last");
-        validPerson.setPrimaryContactEmail("test@gmail.com");
+        validPerson.setPrimaryContactEmail(emailPrefix + "@gmail.com");
 
         Address permanentAddress = new Address();
         permanentAddress.setPerson(validPerson);
